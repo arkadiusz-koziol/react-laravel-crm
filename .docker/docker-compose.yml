@@ -49,18 +49,3 @@ services:
             - redis-data:/data
         networks:
             - crm-network
-
-    frontend:
-        container_name: crm-frontend
-        platform: linux/amd64
-        build:
-            context: ..
-            dockerfile: .docker/frontend/Dockerfile
-        ports:
-            - "5173:5173"
-        volumes:
-            - ../:/var/www/app
-        networks:
-            - crm-network
-        depends_on:
-            - php
